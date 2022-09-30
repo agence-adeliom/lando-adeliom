@@ -1,5 +1,11 @@
 # Adeliom - Lando plugin
 
+## Features of this plugin:
+ * A new [php service](./docs/php.md) A new recipe using a single docker image
+ * A new [lamp recipe](./docs/recipes.md) using the service
+ * A [Mutagen](./docs/mutagen.md) support to speed-up your Docker Desktop for MacOS
+
+---
 ## Requirements
 1. [Mutagen](https://mutagen.io/documentation/introduction/installation) installed and running on your host
 2. Lando (obviously :))
@@ -30,7 +36,7 @@ mv ~/.lando/plugins/lando-adeliom ~/.lando/plugins/lando_adeliom
 Add the plugin in `~/.lando/plugins`. Your directory will look like this:
 
 ```shell
-~/.lando/plugins/lando-adeliom:
+~/.lando/plugins/lando_adeliom:
 -rw-r--r--@ 1 user  group    193 Feb 21 17:07 BaseError.js
 -rw-r--r--@ 1 user  group    455 Feb 21 17:07 Logger.js
 -rw-r--r--@ 1 user  group   2338 Feb 21 17:07 Mutagen.js
@@ -43,14 +49,6 @@ drwxr-xr-x@ 6 user  group    192 Feb 21 17:07 node_modules
 ```
 
 Lando will now load the plugin automatically on any `lando` CLI command. You can verify this by running `lando info -v` and searching for the line
-`DEBUG ==> plugin lando-adeliom loaded from /Users/user/.lando/plugins/lando-adeliom/index.js`
+`DEBUG ==> plugin lando_adeliom loaded from /Users/user/.lando/plugins/lando_adeliom/index.js`
 
 </details>
-
-------
-
-## Development
-
-### Setup
-1. npm install
-2. npx lefthook install

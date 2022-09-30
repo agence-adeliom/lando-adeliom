@@ -15,46 +15,6 @@ This is where this plugin comes in. Add a base [Mutagen](https://mutagen.io) con
 3. On `lando stop`, stop the mutagen syncs
 4. After `lando stop`, remove the temporary amended mutagen configuration file
 
-## Requirements
-1. [Mutagen](https://mutagen.io/documentation/introduction/installation) installed and running on your host
-2. Lando (obviously :))
-
-## Installation
-### Mac Installation Script
-```
-curl -s https://raw.githubusercontent.com/agence-adeliom/lando-adeliom/main/scripts/mac-install.sh | bash
-```
-The above command will download and run a script which installs the latest release of the plugin to `~/.lando/plugins/lando_adeliom`
-### One-liner
-```
-# rm -rf ~/.lando/plugins/lando-adeliom # Delete previous install
-mkdir -p ~/.lando/plugins && wget https://github.com/agence-adeliom/lando-adeliom/releases/latest/download/release.zip -O /tmp/lando-adeliom.zip && unzip -o /tmp/lando-adeliom.zip -d ~/.lando/plugins && rm /tmp/lando-adeliom.zip
-```
-
-There is currently an [issue with lando](https://github.com/lando/lando/issues/3394) where dashes in a plugin's name prevent it from working. Until this is fixed, run this command to rename the plugin:
-```
-mv ~/.lando/plugins/lando-adeliom ~/.lando/plugins/lando_adeliom
-```
-
-### Manual
-Add the plugin in `~/.lando/plugins`. Your directory will look like this:
-```
- ~/.lando/plugins/lando-adeliom:
--rw-r--r--@ 1 user  group    193 Feb 21 17:07 BaseError.js
--rw-r--r--@ 1 user  group    455 Feb 21 17:07 Logger.js
--rw-r--r--@ 1 user  group   2338 Feb 21 17:07 Mutagen.js
--rw-r--r--@ 1 user  group   3766 Feb 21 17:07 MutagenConfigManipulator.js
--rw-r--r--@ 1 user  group   2465 Feb 21 17:07 app.js
--rw-r--r--@ 1 user  group    193 Feb 21 17:07 index.js
-drwxr-xr-x@ 6 user  group    192 Feb 21 17:07 node_modules
--rw-r--r--@ 1 user  group   1277 Feb 21 17:07 package.json
--rw-r--r--@ 1 user  group  96577 Feb 21 17:07 package-lock.json
-```
-
-Lando will now load the plugin automatically on any `lando` CLI command. You can verify this by running `lando info -v` and searching for the line
-`DEBUG ==> plugin lando-adeliom loaded from /Users/user/.lando/plugins/lando-adeliom/index.js`
-
-
 ## Usage
 1. Have an existing Lando project containing a `.lando.yml` file
 2. Add an [excludes configuration section](https://docs.lando.dev/config/performance.html) to it. E.g.
