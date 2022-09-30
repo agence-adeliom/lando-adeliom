@@ -20,7 +20,7 @@ The above command will download and run a script which installs the latest relea
 
 ### One-liner
 ```
-# rm -rf ~/.lando/plugins/lando-adeliom # Delete previous install
+# rm -rf ~/.lando/plugins/lando_adeliom # Delete previous install
 mkdir -p ~/.lando/plugins && wget https://github.com/agence-adeliom/lando-adeliom/releases/latest/download/release.zip -O /tmp/lando-adeliom.zip && unzip -o /tmp/lando-adeliom.zip -d ~/.lando/plugins && rm /tmp/lando-adeliom.zip
 ```
 
