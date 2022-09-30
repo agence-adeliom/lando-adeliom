@@ -1,5 +1,12 @@
 # Changelog
 .
+### 0.0.1 (2022-09-30)
+
+
+### Documentation
+
+* init documentation ([c383433](https://github.com/agence-adeliom/lando-adeliom/commit/c383433ede25cd3e00ce568a2019d84f835348bd))
+
 ### [1.0.12](https://github.com/francoisvdv/lando-mutagen/compare/v1.0.11...v1.0.12) (2022-08-08)
 
 
