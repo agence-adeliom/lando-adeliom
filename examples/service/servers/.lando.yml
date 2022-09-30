@@ -1,0 +1,11 @@
+name: lando-php-servers
+services:
+  caddy:
+    type: adeliom-php
+    via: caddy
+  nginx:
+    type: adeliom-php
+    via: nginx
+  apache:
+    type: adeliom-php
+#    via: apache

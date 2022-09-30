@@ -1,0 +1,4 @@
+FROM adeliom/php:7.4-apache
+
+# Install Oracle Instantclient, OCI8 and Microsoft SQL Server extensions
+RUN install-php-extensions oci8 sqlsrv pdo_sqlsrv

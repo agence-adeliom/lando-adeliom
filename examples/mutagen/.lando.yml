@@ -1,0 +1,17 @@
+name: lando-mutagen
+recipe: adeliom
+config:
+  webroot: public
+  via: 'apache'
+  node: false
+  database: 'mysql'
+  php: '8.1'
+  wkhtmltopdf: false
+  forward_composer_auth: false
+
+excludes:
+  - vendor
+
+events:
+  post-start:
+    - composer install

@@ -1,0 +1,16 @@
+name: lando-php-extensions
+services:
+  buildsteps:
+    type: adeliom-php
+    version: '7.4'
+    build_as_root:
+      - install-php-extensions xsl
+  dockerfile:
+    type: adeliom-php
+    version: '7.4'
+    overrides:
+      build:
+        context: ./
+        dockerfile: Dockerfile.custom
+      ports:
+        - "80"
