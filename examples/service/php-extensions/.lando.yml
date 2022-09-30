@@ -1,13 +1,11 @@
 name: lando-php-extensions
 services:
   buildsteps:
-    type: adeliom-php
-    version: '7.4'
+    type: adeliom-php:8.1
     build_as_root:
       - install-php-extensions xsl
   dockerfile:
-    type: adeliom-php
-    version: '7.4'
+    type: adeliom-php:8.1
     overrides:
       build:
         context: ./

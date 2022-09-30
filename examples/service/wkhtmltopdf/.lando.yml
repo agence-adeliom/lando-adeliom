@@ -1,5 +1,5 @@
 name: lando-php-wkhtmltopdf
 services:
   wkhtmltopdf:
-    type: adeliom-php
+    type: adeliom-php:8.1
     wkhtmltopdf: true

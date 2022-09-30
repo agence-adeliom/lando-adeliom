@@ -39,7 +39,7 @@ const parseCaddy = options => {
  * Helper to parse php config
  */
 const parseConfig = options => {
-  switch (options.via.split(':')[0]) {
+  switch (options.via) {
     case 'apache': return parseApache(options);
     case 'cli': return parseCli(options);
     case 'nginx': return parseNginx(options);
@@ -55,8 +55,6 @@ export = {
     supported: ['8.1', '8.0', '7.4'],
     path: [
       '/usr/local/apache2/bin',
-      '/var/wwww/html/vendor/bin',
-      '/var/wwww/html/bin',
       '/app/vendor/bin',
       '/app/bin',
       '/usr/local/sbin',
@@ -66,7 +64,6 @@ export = {
       '/sbin',
       '/bin',
       '/var/www/.composer/vendor/bin',
-      '/root/.composer/vendor/bin',
       '/helpers',
     ],
     confSrc: __dirname,
@@ -76,9 +73,15 @@ export = {
       COMPOSER_ALLOW_SUPERUSER: 1,
       COMPOSER_MEMORY_LIMIT: '-1',
       PHP_INI_MEMORY_LIMIT: '1G',
+      PHP_INI_DISPLAY_ERRORS: "On",
+      PHP_INI_DISPLAY_STARTUP_ERRORS: "On",
+      PHP_INI_OPCACHE_REVALIDATE_FREQ: 0,
     },
-    remoteFiles: {},
+    remoteFiles: {
+      php: '/usr/local/etc/php/conf.d/zzz-lando-my-custom.ini'
+    },
     sources: [],
+    ssl: false,
     via: 'apache',
     wkhtmltopdf: false,
     node: '18',
@@ -88,8 +91,7 @@ export = {
   parent: '_appserver',
   builder: (parent, config) => class LandoAdeliomPhp extends parent {
     constructor(id, options:any = {}, factory) {
-      options = parseConfig(_.merge({}, config, options));
-      
+      options = parseConfig(_.merge({}, config, options));      
       options.command.unshift('docker-entrypoint');
       
       // If xdebug is set to "true" then map it to "debug"
@@ -104,12 +106,14 @@ export = {
           DOCUMENT_ROOT: `/app/${options.webroot}`,
           XDEBUG_CONFIG: xdebugConfig(options._app.env.LANDO_HOST_IP),
           XDEBUG_MODE: (options.xdebug === false) ? 'off' : options.xdebug,
+          PHP_INI_XDEBUG_MODE: (options.xdebug === false) ? 'off' : options.xdebug,
         }),
         networks: {default: {}},
         ports: ['80'],
         volumes: options.volumes,
         command: options.command.join(' '),
       };
+
       options.info = {via: options.via};
 
       // Add our composer things to run step

@@ -1,18 +1,14 @@
 name: lando-phpnode
 services:
   none:
-    type: adeliom-php
-    version: "7.4"
+    type: adeliom-php:8.1
     node: false
   node-14:
-    type: adeliom-php
-    version: "7.4"
+    type: adeliom-php:8.1
     node: '14'
   node-16:
-    type: adeliom-php
-    version: "7.4"
+    type: adeliom-php:8.1
     node: '16'
   node-18:
-    type: adeliom-php
-    version: "7.4"
+    type: adeliom-php:8.1
     node: '18'

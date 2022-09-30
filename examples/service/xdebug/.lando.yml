@@ -1,14 +1,11 @@
 name: lando-phpxdebug
 services:
   xdebug:
-    type: adeliom-php
-    version: "7.4"
+    type: adeliom-php:8.1
     xdebug: "debug,develop"
   xdebug-on:
-    type: adeliom-php
-    version: "7.4"
+    type: adeliom-php:8.1
     xdebug: true
   xdebug-off:
-    type: adeliom-php
-    version: "7.4"
+    type: adeliom-php:8.1
     xdebug: false

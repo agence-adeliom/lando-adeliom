@@ -22,12 +22,13 @@ export = {
         php: '8.1',
         node: '18',
         via: 'apache',
+        webroot: '.',
         wkhtmltopdf: false,
         forward_composer_auth: false,
-        webroot: '.',
+        xdebug: false,
+        proxy: {},
         services: {
             appserver: {
-                type: 'adeliom-php',
                 overrides: {
                     volumes: [],
                 }
@@ -37,11 +38,12 @@ export = {
     builder: (parent, config) => class LandoAdeliom extends parent {
         constructor(id, options: any = {}) {
             options = _.merge({}, config, options)
-            options.services.appserver.type = `adeliom-php`;
-            options.services.appserver.version = options.php;
+            options.services.appserver.type = `adeliom-php:${options.php}`;
             options.services.appserver.node = options.node;
             options.services.appserver.via = options.via;
             options.services.appserver.wkhtmltopdf = options.wkhtmltopdf;
+            options.services.appserver.xdebug = options.xdebug;
+            options.proxyService = 'appserver';
 
             if (options.forward_composer_auth) {
                 options.services.appserver.overrides.volumes.push(`~/.composer/auth.json:/var/www/.composer/auth.json:ro`);
@@ -49,7 +51,6 @@ export = {
             if (options.node) {
                 options.tooling = _.merge({}, nodeTooling, options.tooling);
             }
-            options.proxyService = 'appserver';
             super(id, options);
         }
     },

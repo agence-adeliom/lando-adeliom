@@ -1,8 +1,8 @@
 name: lando-php-composer
 services:
   composer:
-    type: adeliom-php
+    type: adeliom-php:8.1
   dependencies:
-    type: adeliom-php
+    type: adeliom-php:8.1
     composer:
       phpunit/phpunit: "*"
