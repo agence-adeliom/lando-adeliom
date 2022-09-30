@@ -1,9 +1,9 @@
 #!/bin/sh
 
 PLUGINS_DIR="$HOME/.lando/plugins"
-PLUGIN_PATH="$PLUGINS_DIR/lando_mutagen"
-ZIP_DOWNLOAD_PATH="$PLUGINS_DIR/lando_mutagen.zip"
-ZIP_DOWNLOAD_URL="https://github.com/agence-adeliom/lando-mutagen/releases/latest/download/release.zip"
+PLUGIN_PATH="$PLUGINS_DIR/lando_adeliom"
+ZIP_DOWNLOAD_PATH="$PLUGINS_DIR/lando_adeliom.zip"
+ZIP_DOWNLOAD_URL="https://github.com/agence-adeliom/lando-adeliom/releases/latest/download/release.zip"
 
 check_if_command_exists()
 {
@@ -48,10 +48,10 @@ rm -rf $ZIP_DOWNLOAD_PATH
 # Remove old version of plugin
 rm -rf $PLUGIN_PATH
 # Rename directory to use underscore instead of dash
-mv "$PLUGINS_DIR/lando-mutagen" $PLUGIN_PATH
+mv "$PLUGINS_DIR/lando-adeliom" $PLUGIN_PATH
 
 # Check to make sure then plugin is detected by lando
-if lando config | grep '.lando/plugins/lando_mutagen/app.js' &> /dev/null
+if lando config | grep '.lando/plugins/lando_adeliom/app.js' &> /dev/null
 then
     echo "Plugin installed and detected in 'lando config'"
     exit
