@@ -6,6 +6,7 @@
         "strictFunctionTypes": true,
         "sourceMap": false,
         "outDir": "dist",
+        "resolveJsonModule": true,
         "typeRoots": [
             "src/types",
             "node_modules/@types"

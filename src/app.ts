@@ -6,6 +6,7 @@ import { Logger } from "./lib/Logger";
 import { Mutagen, MutagenProcessError } from "./lib/Mutagen";
 import { MutagenConfigInvalidError, MutagenConfigManipulator, MutagenConfigNotFoundError, MutagenConfigWriteError } from "./lib/Mutagen/ConfigManipulator";
 import { platform } from 'process';
+import * as versionCheck from 'github-version-checker';
 
 const handleError = (e: BaseError, logger: Logger) => {
     if (e instanceof MutagenConfigNotFoundError) {
@@ -46,6 +47,28 @@ export = (app: App) => {
 
         return true;
     };
+
+    app.events.on('post-start', () => {
+        
+        const options = {
+            repo: 'lando-adeliom',
+            owner: 'agence-adeliom',
+            currentVersion: require('./package.json').version // eslint-disable-line
+        };
+        versionCheck(options, function (error, update) {
+            if (update) {
+                // @ts-ingore
+                app.addWarning({
+                    title: `A new version of the plugin 'lando-adeliom' is available`,
+                    detail: [
+                        `You have version v${options.currentVersion} but Lando Adeliom released ${update.name}`,
+                        'Please proceed to update with the instructions from the README in our repository'
+                    ],
+                    url: 'https://github.com/agence-adeliom/lando-adeliom',
+                }, error)
+            }
+        });
+    });
 
     app.events.on('post-start', () => {
         if (canStartMutagen() !== true) {

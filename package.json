@@ -21,6 +21,7 @@
   "author": "Francois van der Ven (francois@vanderven.dev)",
   "license": "MIT",
   "dependencies": {
+    "github-version-checker": "^2.3.0",
     "js-yaml": "^4.1.0",
     "lodash": "^4.17.21"
   },
