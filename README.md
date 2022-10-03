@@ -1,4 +1,7 @@
 # Adeliom - Lando plugin
+![GitHub package.json version](https://img.shields.io/github/package-json/v/agence-adeliom/lando-adeliom)
+![GitHub all releases](https://img.shields.io/github/downloads/agence-adeliom/lando-adeliom/total)
+![GitHub](https://img.shields.io/github/license/agence-adeliom/lando-adeliom)
 
 ## Features of this plugin:
  * A new [php service](./docs/php.md) A new recipe using a single docker image
