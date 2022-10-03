@@ -23,7 +23,6 @@ This is where this plugin comes in. Add a base [Mutagen](https://mutagen.io) con
       - var
       - vendor
     ```
-    Note that you might have to do a `lando rebuild` after this.
 3. Add a `.lando.mutagen.yml` file, which contains your base [mutagen configuration](https://mutagen.io/documentation/orchestration/projects). Example contents (enough to get started):
     ```
     sync:
@@ -35,5 +34,6 @@ This is where this plugin comes in. Add a base [Mutagen](https://mutagen.io) con
                 defaultFileMode: 644
                 defaultDirectoryMode: 755
     ```
-4. Run `lando start`. This might take some time due to the file syncs.
-5. Profit! File changes in the `excludes` directories will now be synced back to the host and you can enjoy close-to linux-native Docker filesystem performance.
+4. Add `*.mutagen.yml.*` to your gitingore.
+5. Run `lando rebuild -y`. This might take some time due to the file syncs.
+6. Profit! File changes in the `excludes` directories will now be synced back to the host and you can enjoy close-to linux-native Docker filesystem performance.

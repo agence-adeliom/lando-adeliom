@@ -28,8 +28,7 @@ check_if_command_exists mutagen "Mutagen is necessary to use this plugin - https
 
 if [ ! -d $PLUGINS_DIR ]
 then
-    echo "$PLUGINS_DIR does not exist."
-    exit 1
+    mkdir -p $PLUGINS_DIR
 fi
 
 curl -L "$ZIP_DOWNLOAD_URL" -o "$ZIP_DOWNLOAD_PATH"
