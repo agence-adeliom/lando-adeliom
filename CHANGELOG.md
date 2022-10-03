@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.0.3](https://github.com/agence-adeliom/lando-adeliom/compare/v0.0.2...v0.0.3) (2022-10-03)
+
+
+### Documentation
+
+* fix typo ([d2b7299](https://github.com/agence-adeliom/lando-adeliom/commit/d2b7299d9541b4b60238421be2c47882de3fbcf0))
+
 ### [0.0.2](https://github.com/agence-adeliom/lando-adeliom/compare/v0.0.1...v0.0.2) (2022-09-30)
 
 
