@@ -55,3 +55,6 @@ Lando will now load the plugin automatically on any `lando` CLI command. You can
 `DEBUG ==> plugin lando_adeliom loaded from /Users/user/.lando/plugins/lando_adeliom/index.js`
 
 </details>
+
+-----
+Made with ❤️ by [@agence-adeliom](https://github.com/agence-adeliom)
