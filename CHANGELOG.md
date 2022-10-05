@@ -1,5 +1,17 @@
 # Changelog
 
+### [0.0.4](https://github.com/agence-adeliom/lando-adeliom/compare/v0.0.3...v0.0.4) (2022-10-05)
+
+
+### Bug Fixes
+
+* dirs perms ([6c84bf0](https://github.com/agence-adeliom/lando-adeliom/commit/6c84bf05c510800e80b70fd3275d6e88df8e46f3))
+
+
+### Documentation
+
+* **mutagen:** update setup flow ([7dc87eb](https://github.com/agence-adeliom/lando-adeliom/commit/7dc87eb676938316db826baf77a466f7ce2006e7))
+
 ### [0.0.3](https://github.com/agence-adeliom/lando-adeliom/compare/v0.0.2...v0.0.3) (2022-10-03)
 
 
