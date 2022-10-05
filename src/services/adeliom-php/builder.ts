@@ -103,6 +103,7 @@ export = {
         environment: _.merge({}, options.environment, {
           PATH: options.path.join(':'),
           LANDO_WEBROOT: `/app/${options.webroot}`,
+          LANDO_RESET_DIR: '/var/www',
           DOCUMENT_ROOT: `/app/${options.webroot}`,
           XDEBUG_CONFIG: xdebugConfig(options._app.env.LANDO_HOST_IP),
           XDEBUG_MODE: (options.xdebug === false) ? 'off' : options.xdebug,
